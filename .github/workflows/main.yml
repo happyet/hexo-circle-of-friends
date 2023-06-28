@@ -117,6 +117,10 @@ jobs:
         rebase: 'true'
         name: github-actions[bot]
         email: github-actions@noreply.github.com
-
+    - name: Webhook
+        uses: distributhor/workflow-webhook@v2
+        env:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
     - name: keep alive
       uses: gautamkrishnar/keepalive-workflow@master # keep workflows from being suspended when no commit for a long time
